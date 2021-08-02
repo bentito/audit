@@ -77,6 +77,8 @@ func NewCmd() *cobra.Command {
 		"if set, will disable the scorecard tests")
 	cmd.Flags().BoolVar(&flags.DisableValidators, "disable-validators", false,
 		"if set, will disable the validators tests")
+	cmd.Flags().BoolVar(&flags.DisableValidators, "enable-k8s-1.25-dep", false,
+		"if set, will enable checks for API deprecated in k8s v1.25")
 	cmd.Flags().StringVar(&flags.Label, "label", "",
 		"filter by packages which has bundles with index images where contains *label*")
 	cmd.Flags().StringVar(&flags.LabelValue, "label-value", "",
