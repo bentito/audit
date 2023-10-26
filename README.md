@@ -63,10 +63,26 @@ Now, you can audit all operator bundles of an image catalog with:
 audit-tool index bundles --index-image=registry.redhat.io/redhat/redhat-operator-index:v4.7 
 ```
 
-Then, this report will result in a JSON file with all data exctract from the index and the bundles. Note that audit
+Then, this report will result in a JSON file with all data extract from the index and the bundles. Note that audit
 will download each bundle and extracted the info from them. Therefore, the reports available in the page [https://operator-framework.github.io/audit/](https://operator-framework.github.io/audit/)
 are done using the sub-command `dashboard`. All custom reports requires the bundles report in jSON format
 so that they can are able to gathering the data and process it accordingly.
+
+
+### EUS Report Generation
+
+The audit tool offers a feature that enables users to generate an EUS (Extended Update Support) report. This report details how operators can be upgraded across Red Hat OpenShift versions, offering insights into available upgrade paths.
+
+#### Usage:
+```sh
+bin/audit-tool index eus --indexes=registry.redhat.io/redhat/redhat-operator-index:v4.12,registry.redhat.io/redhat/redhat-operator-index:v4.13,registry.redhat.io/redhat/redhat-operator-index:v4.14
+```
+
+#### Flags:
+- `--indexes`: Specify a comma-separated list of indexes to be included in the report.
+
+#### Overview:
+When the EUS report is generated, the tool performs specific checks and analyses to determine the upgrade paths across the specified OpenShift versions. The generated report offers a comprehensive view of the available upgrade paths for operators, assisting users in planning their OpenShift version upgrades.
 
 ### Options
 
